@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 10px;
+            outline: 0px;
+            padding: 07px;
+        }
+        .con{
+            display: grid;
+            width: 35%;
+            margin: auto;
+            height: 80vh;
+            background-color: black;
+            top: 05vh;
+            position: relative;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 4px;
+            /* border-radius: 30px; */
+        }
+        .textfld{
+            grid-column: 1/5;
+        }
+        .textfld input{
+            width: 100%;
+            border: 0px;
+            color: white;
+            background: transparent;
+            padding-right: 55px;
+            font-size: 20px;
+            box-sizing: border-box;
+                       
+        }
+        .con div{
+            text-align: center;
+            box-shadow: 0px 0px 5px 3px white;
+            font-size: 30px;
+            align-items: center;
+            padding-top: 10px;
+            color: white;
+        }
+        
+    </style>
+</head>
+<body>
+        <div class="con">
+            <div class="textfld"><input type="text" value="0" id="res"/></div>
+            <div onclick="fun('%')">%</div>
+            <div onclick="fun('ac')">ac</div>
+            <div onclick="fun('c')">c</div>
+            <div onclick="fun('+')">+</div>
+            <div onclick="fun('7')">7</div>
+            <div onclick="fun('8')">8</div>
+            <div onclick="fun('9')">9</div>
+            <div onclick="fun('-')">-</div>
+            <div onclick="fun('4')">4</div>
+            <div onclick="fun('5')">5</div>
+            <div onclick="fun('6')">6</div>
+            <div onclick="fun('*')">*</div>
+            <div onclick="fun('1')">1</div>
+            <div onclick="fun('2')">2</div>
+            <div onclick="fun('3')">3</div>
+            <div onclick="fun('/')">/</div>
+            <div onclick="fun('00')">00</div>
+            <div onclick="fun('0')">0</div>
+            <div onclick="fun('.')">.</div>
+            <div onclick="fun('=')">=</div>
+        </div>
+        <script>
+            let rs=''
+            function fun(d)
+            {
+                if(d=='ac')
+                {
+                    rs=0
+                }
+                else if(d=='c')
+                {
+                    // rs=rs.slice(0,rs.length-1)
+                    rs=0
+                }
+                else if(d=='=')
+                {
+                    rs=eval(rs)
+                }
+                else
+                {
+                    if(rs=='0')
+                    {
+                        rs=d
+                    }
+                    else
+                    {
+                        rs=rs+d
+                    }
+                   
+                }
+                document.getElementById("res").value=rs
+            }
+        </script>
+</body>
+</html>
